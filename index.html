@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>RevealJS Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reveal.js core (via CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme">
+  <!-- Code highlight theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css">
+  <!-- KaTeX for math -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+
+  <style>
+    .email { font-size: 1rem; opacity: 0.8; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- Title slide (shows your email) -->
+    <section>
+      <h1>RevealJS Presentation</h1>
+      <p class="email">📧 23f2001992@ds.study.iitm.ac.in</p>
+      <aside class="notes">
+        Welcome the audience; give a one-line summary of what this talk covers.
+      </aside>
+    </section>
+
+    <!-- A slide written in Markdown (inline) -->
+    <section data-markdown>
+      <textarea data-template>
+# Markdown Slide ✅
+
+- This slide is written in **Markdown**
+- It supports _emphasis_, **bold**, and `inline code`
+- You can also add speaker notes below
+
+Notes:
+- Mention that Reveal supports external `.md` files too via the Markdown plugin
+      </textarea>
+    </section>
+
+    <!-- Fragments (animated bullet reveals) -->
+    <section>
+      <h2>Animated Elements with Fragments</h2>
+      <ul>
+        <li class="fragment">Point 1 appears...</li>
+        <li class="fragment">Then Point 2...</li>
+        <li class="fragment">And Point 3!</li>
+      </ul>
+      <aside class="notes">
+        Pause after each fragment to explain. Use arrow keys to advance pieces.
+      </aside>
+    </section>
+
+    <!-- Code sample with syntax highlighting -->
+    <section>
+      <h2>Code Sample (Python)</h2>
+      <pre><code class="language-python">
+def npv(rate, cashflows):
+    # cashflows[0] is typically the initial investment (negative)
+    return sum(cf / ((1 + rate) ** t) for t, cf in enumerate(cashflows))
+print(npv(0.1, [-1000, 400, 400, 400, 400]))
+      </code></pre>
+      <aside class="notes">
+        Point out syntax highlighting and switch examples per audience background.
+      </aside>
+    </section>
+
+    <!-- Math (financial formulas) -->
+    <section>
+      <h2>Math: Financial Formulas</h2>
+      <p>Net Present Value (NPV):</p>
+      <p>$$ \mathrm{NPV} = \sum_{t=0}^{T} \frac{CF_t}{(1 + r)^t} $$</p>
+
+      <p>Future Value of an Annuity:</p>
+      <p>$$ \mathrm{FV} = P \cdot \frac{(1+r)^n - 1}{r} $$</p>
+
+      <aside class="notes">
+        Walk through variables: \(CF_t\) cash flow at time t, r discount rate.
+      </aside>
+    </section>
+
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/math/math.js"></script>
+
+<script>
+  Reveal.initialize({
+    hash: true,                       // deep-link to slides
+    slideNumber: true,                // show slide numbers
+    plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX ],
+    // Optional: tweak transitions
+    transition: 'fade',
+  });
+</script>
+</body>
+</html>
